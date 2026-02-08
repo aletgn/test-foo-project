@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="testfooproject",
-    version="release/0.0.0rc0",
+    version="0.0.0",
     description="TEST",
     long_description=long_description,
     long_description_content_type="text/markdown",
