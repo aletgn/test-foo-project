@@ -104,7 +104,9 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: dist
-          path: dist/
+          path: |
+              dist/*.whl
+              dist/*.tar.gz
 
       - name: Publish distribution to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
