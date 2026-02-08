@@ -16,11 +16,11 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 keywords = ["test", "example", "python"]
-urls = { 
-    "Homepage" = "https://github.com/aletgn/test-foo-project",
-    "Repository" = "https://github.com/aletgn/test-foo-project",
-    "Documentation" = "https://github.com/aletgn/test-foo-project#readme"
-}
+
+[project.urls]
+Homepage = "https://github.com/aletgn/test-foo-project"
+Repository = "https://github.com/aletgn/test-foo-project"
+Documentation = "https://github.com/aletgn/test-foo-project#readme"
 
 [project.optional-dependencies]
 test = ["notebook"]
@@ -28,4 +28,3 @@ dev = ["pytest", "twine", "setuptools", "build"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
