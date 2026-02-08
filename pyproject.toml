@@ -9,12 +9,7 @@ description = "TEST"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "aletgn"}]
-license = {text = "MIT"}
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT license",
-    "Operating System :: OS Independent",
-]
+license = "MIT"
 keywords = ["test", "example", "python"]
 
 [project.urls]
