@@ -37,7 +37,7 @@ jobs:
 
     environment:
       name: releasetest
-      url: https://test.pypi.org/p/testfooproj
+      #url: https://test.pypi.org/p/testfooproj
 
     permissions:
       id-token: write
@@ -50,5 +50,5 @@ jobs:
         path: dist/
     - name: Publish distribution to TestPyPI
       uses: pypa/gh-action-pypi-publish@master
-      with:
-        repository-url: https://test.pypi.org/
+      #with:
+        #repository-url: https://test.pypi.org/
