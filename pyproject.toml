@@ -8,13 +8,19 @@ version = "0.0.9"
 description = "TEST"
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [{name="aletgn"}]
+authors = [{name = "aletgn"}]
 license = {text = "MIT"}
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT license",
     "Operating System :: OS Independent",
 ]
+keywords = ["test", "example", "python"]  # optional but recommended
+urls = { 
+    "Homepage" = "https://github.com/aletgn/test-foo-project",
+    "Repository" = "https://github.com/aletgn/test-foo-project",
+    "Documentation" = "https://github.com/aletgn/test-foo-project#readme"
+}
 
 [project.optional-dependencies]
 test = ["notebook"]
@@ -22,3 +28,4 @@ dev = ["pytest", "twine", "setuptools", "build"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
