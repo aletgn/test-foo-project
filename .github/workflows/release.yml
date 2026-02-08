@@ -40,3 +40,26 @@ jobs:
             echo "No tag found"
             exit 1
           fi
+        
+  setup_and_build:
+      needs: details
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v6
+
+        - name: Set up Python
+          uses: actions/setup-python@v6
+          with:
+            python-version: "3.x"
+
+        - name: Install build tool
+          run: python3 -m pip install --upgrade pip build --user
+
+        - name: Build a binary wheel and source tarball
+          run: python3 -m build
+
+        - name: Upload distribution packages
+          uses: actions/upload-artifact@v5
+          with:
+            name: python-package-distributions
+            path: dist/
