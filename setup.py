@@ -1,54 +1,27 @@
-name: Publish Python distribution to PyPI and TestPyPI
+from setuptools import find_packages, setup
 
-on: push
+with open("README.md", "r", encoding="utf-8") as f:
+    long_description = f.read()
 
-jobs:
-  build:
-    name: Build distribution
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v6
-      with:
-        persist-credentials: false
-    - name: Set up Python
-      uses: actions/setup-python@v6
-      with:
-        python-version: "3.x"
-    - name: Install pypa/build
-      run: >-
-        python3 -m
-        pip install
-        build
-        --user
-    - name: Build a binary wheel and a source tarball
-      run: python3 -m build
-    - name: Store the distribution packages
-      uses: actions/upload-artifact@v5
-      with:
-        name: python-package-distributions
-        path: dist/
-
-  publish-to-testpypi:
-    name: Publish Python distribution to TestPyPI
-    needs:
-    - build
-    runs-on: ubuntu-latest
-
-    environment:
-      name: releasetest
-      url: https://test.pypi.org/p/testfooproj
-
-    permissions:
-      id-token: write
-
-    steps:
-    - name: Download all the dists
-      uses: actions/download-artifact@v6
-      with:
-        name: python-package-distributions
-        path: dist/
-    - name: Publish distribution to TestPyPI
-      uses: pypa/gh-action-pypi-publish@master
-      with:
-        repository-url: https://test.pypi.org/legacy/
+setup(
+    name="testfooproject",
+    version="0.0.1",
+    description="TEST",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+        
+    author="aletgn",
+    
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT license",
+        "Operating System :: OS Independent",
+    ],
+    
+    package_dir={"": "src"},
+    packages=find_packages(where="src"),
+    python_requires=">=3.10",
+    
+    extras_require={"test" : ["notebook"],
+                    "dev" : ["pytest", "twine", "setuptools", "build"]}
+)
