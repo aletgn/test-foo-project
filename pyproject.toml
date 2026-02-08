@@ -1,3 +1,24 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=65", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "testfooproject"
+version = "0.0.8"
+description = "TEST"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name="aletgn"}]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT license",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+test = ["notebook"]
+dev = ["pytest", "twine", "setuptools", "build"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
