@@ -1,8 +1,6 @@
-name: Publish Python distribution to PyPI and TestPyPI
+name: Publish Python distribution to TestPyPI (push)
 
-on:
-  release:
-    types: [published]
+on: push
 
 jobs:
   build:
@@ -23,18 +21,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
-    environment:
-      name: releasetest
-
-    permissions:
-      id-token: write
-      contents: read
-
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: python-package-distributions
           path: dist/
-      - uses: pypa/gh-action-pypi-publish@master
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
