@@ -15,7 +15,7 @@ classifiers = [
     "License :: OSI Approved :: MIT license",
     "Operating System :: OS Independent",
 ]
-keywords = ["test", "example", "python"]  # optional but recommended
+keywords = ["test", "example", "python"]
 urls = { 
     "Homepage" = "https://github.com/aletgn/test-foo-project",
     "Repository" = "https://github.com/aletgn/test-foo-project",
