@@ -35,6 +35,6 @@ jobs:
         with:
           name: python-package-distributions
           path: dist/
-      - uses: pypa/gh-action-pypi-publish@release/v1
+      - uses: pypa/gh-action-pypi-publish@master
         with:
           repository-url: https://test.pypi.org/legacy/
