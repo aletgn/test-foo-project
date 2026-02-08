@@ -90,17 +90,15 @@ jobs:
           gh release create ${{ needs.details.outputs.tag_name }} dist/* --title ${{ needs.details.outputs.tag_name }} --generate-notes
 
 
-  pypi_publish:
-    name: Upload release to PyPI
+  testpypi_publish:
+    name: Upload release to testPyPI
     needs: [setup_and_build, details]
     runs-on: ubuntu-latest
     environment:
-      name: release
+      name: testpypi
       url: https://test.pypi.org/p/testfooproj
     permissions:
       id-token: write
-      attestations: write
-      artifact-metadata: write
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v5
